@@ -146,6 +146,11 @@ var makeCall = function(done, req_id){
     // console.log("making call");
 
     var start = new Date().getTime();
+    
+    if (target.pathFn) {
+        target.path = target.pathFn();
+        // console.log('target.path: %s', target.path);
+    }
 
     http_get(target, function(res) {
         res.on('data', function(){/*Do nothing. Consume data so the connection ends.*/});
