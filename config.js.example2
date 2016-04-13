@@ -9,19 +9,18 @@ module.exports = {
         output_format: 'text' // -o 'text' or 'json'
     },
     targets: {
-        epg: {
-            auth: 'pcc:media',
-            host: '10.43.1.33',
+        targ1: {
+            auth: 'user:password',
+            host: 'www.remote.com',
             port: 8080,
-            // path: '/plsq/pcc.scrs2?search=&pos=1&cnt=16',
             pathFn: function() {
-                return '/plsq/pcc.scrs2?search=&pos=' + ((i++) * batchCount + 1) + '&cnt=' + batchCount; 
+                return '/path/to/res?pos=' + ((i++) * batchCount + 1) + '&cnt=' + batchCount; 
             } 
         },
-        qrest: {
+        targ2: {
             host: 'localhost',
             port: 8081,
-            path: '/rest/pcc/scrs?search=&pos=1&cnt=16',
+            path: '/path/to/res?pos=1&cnt=16',
         }
     }
 };
